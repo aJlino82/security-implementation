@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Protected</title>
+</head>
+<body>
+<head>
+    <title>Hello World Protected!</title>
+</head>
+<h1 th:inline="text">Protected Hello<span th:remove="tag" sec:authentication="name">Thymeleaf Protected</span></h1>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout"/>
+</form>
+
+
+</body>
+</html>
