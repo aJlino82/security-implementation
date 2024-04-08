@@ -16,7 +16,7 @@ public class DataPopulator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        User user = new User("user", passwordEncoder.encode("1234"));
+        User user = new User("user", passwordEncoder.encode("1234"), "user@email.com","USER");
         userRepository.save(user);
     }
 }

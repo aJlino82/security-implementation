@@ -21,6 +21,10 @@ public class User implements UserDetails {
     private String username;
     @NotEmpty
     private String password;
+    @NotEmpty
+    private String email;
+
+    private String role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
