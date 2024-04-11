@@ -1,4 +1,4 @@
-package br.lino.springsecurity.Configs;
+package br.lino.springsecurity.configs;
 
 import br.lino.springsecurity.services.UserService;
 import org.springframework.context.annotation.Bean;
@@ -42,13 +42,14 @@ public class SecurityConfig {
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
         httpSecurity
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
-                        authorizationManagerRequestMatcherRegistry.requestMatchers("/").permitAll())
+                        authorizationManagerRequestMatcherRegistry.requestMatchers("/**", "/main/**").authenticated())
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
                         authorizationManagerRequestMatcherRegistry.requestMatchers("/pro-hello/**").authenticated())
 
                 .formLogin(form -> form
                         .loginPage("/login")
                         .permitAll()
+                        .defaultSuccessUrl("/main")
                 );
         return httpSecurity.build();
     }
